@@ -38,47 +38,6 @@ def tweak_autos(autos):
     )
 
 
-def tweak_cust(df):
-    column_mapping = {
-	"datum_datenabzug": "data_extraction_date",
-	"stdp_stammnr": "parent_account_id",
-	"stdp_eroeffnung": "parent_account_opening_date",
-	"kund_stammnr": "client_number",
-	"anrede": "salutation",
-	"titel": "academic_title",
-	"strasse": "street",
-	"plz": "zip",
-	"ort": "city",
-	"kund_geloescht": "customer_deleted_flag",
-	"kund_geloescht_datum": "customer_deleted_date",
-	"kund_emailadresse": "email_address",
-	"dbt_valid_from": "record_technical_valid_from_date",
-	"dbt_valid_to": "record_technical_valid_until_date",
-	"geburtsdatum_jahr": "year_of_birth",
-	"geburtsdatum_mon": "month_of_birth"
-    }
-    return (df
-        .rename(columns=column_mapping)
-        .pipe(lambda df_:
-          df_
-            .assign(data_extraction_date=pd.to_datetime(df_.data_extraction_date),
-                    parent_account_opening_date=pd.to_datetime(df_.parent_account_opening_date, format='%d-%m-%Y'),
-                    customer_deleted_date=pd.to_datetime(df_.customer_deleted_date, format='%d-%m-%Y'),
-                    record_technical_valid_from_date=pd.to_datetime(df_.record_technical_valid_from_date, format='%Y-%m-%d'),                    
-                    record_technical_valid_until_date=pd.to_datetime(df_.record_technical_valid_until_date, format='%Y-%m-%d'),                    
-                   )
-             )
-        .astype({'salutation': 'category',
-                'academic_title': 'category',
-                'city': 'category',
-                'zip': 'category',
-                'year_of_birth': 'int16[pyarrow]',
-                'month_of_birth': 'int8[pyarrow]',
-                })
-           )
-
-
-
 def feature_engineer(df):
     return (df
       .assign(customer_age=pd.Timestamp('today').year - df.year_of_birth,
