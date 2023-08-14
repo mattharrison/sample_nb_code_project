@@ -32,7 +32,7 @@ def get_app(data, categorical_features, numeric_features):
                     dbc.Label("X-Axis:"),
                     dcc.Dropdown(
                         id='scatter-x-dropdown',
-                        options=[{'label': i, 'value': i} for i in data.columns],
+                        options=[{'label': i, 'value': i} for i in pca.pcs.columns],
                         value='pc1'
                     ),
                 ]
@@ -42,7 +42,7 @@ def get_app(data, categorical_features, numeric_features):
                     dbc.Label("Y-Axis:"),
                     dcc.Dropdown(
                         id='scatter-y-dropdown',
-                        options=[{'label': i, 'value': i} for i in data.columns],
+                        options=[{'label': i, 'value': i} for i in pca.pcs.columns],
                         value='pc2'
                     ),
                 ]
@@ -52,7 +52,7 @@ def get_app(data, categorical_features, numeric_features):
                     dbc.Label("Z-Axis:"),
                     dcc.Dropdown(
                         id='scatter-z-dropdown',
-                        options=[{'label': i, 'value': i} for i in data.columns],
+                        options=[{'label': i, 'value': i} for i in pca.pcs.columns],
                         value='pc3'
                     ),
                 ]

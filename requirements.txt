@@ -1,0 +1,8 @@
+dash==2.12.0
+dash-bootstrap-components==1.4.2
+feature-engine==1.6.1
+notebook==7.0.2
+pandas==2.0.3
+plotly==5.15.0
+pyarrow==12.0.1
+pytest==7.4.0

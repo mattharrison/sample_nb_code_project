@@ -1,5 +1,5 @@
 # Variables
-VENV_NAME=/Users/matt/.envs/menv
+VENV_NAME=venv
 DOCKER_IMG_NAME=dash_demo
 DOCKER_CONTAINER_NAME=dash_container
 JUPYTER_NOTEBOOK=dash_v3-xyz.py
