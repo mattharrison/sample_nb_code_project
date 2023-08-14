@@ -1,0 +1,45 @@
+# .github/workflows/ci_workflow.yml
+
+name: CI/CD Workflow
+
+on:
+  push:
+    branches:
+      - main  # replace 'main' with your default branch if different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v2
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Create project directory structure
+      run: make setup-directories
+
+    - name: Set up a virtual environment and install dependencies
+      run: make setup_venv
+
+    - name: Run tests
+      run: make test
+
+    - name: Build Docker image
+      run: make docker_build
+
+    - name: Deploy Docker container
+      run: make docker_deploy
+
+    - name: Cleanup Docker
+      run: make docker_stop
+
+env:
+  DOCKER_IMG_NAME: dash_demo
+  DOCKER_CONTAINER_NAME: dash_container
+  VENV_NAME: .venv
+  PYTHON: python3
