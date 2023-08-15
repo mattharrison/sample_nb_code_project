@@ -6,6 +6,7 @@ JUPYTER_NOTEBOOK=dash_v3-xyz.py
 PYTHON=python3
 PIP=$(VENV_NAME)/bin/pip
 APP=$(VENV_NAME)/bin/python
+PYTEST=$(VENV_NAME)/bin/pytest
 
 help:
 	@echo "Choose a command to run in pca-proj:"
