@@ -10,8 +10,10 @@ Provide a more detailed description of the project, its main features, and its u
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Running in Codespaces](#running-in-codespaces)
 - [Development Commands](#development-commands)
 - [Contributing](#contributing)
+- [Directory Structure](#directory-structure)
 - [License](#license)
 
 ## Installation
@@ -71,6 +73,13 @@ Provide a more detailed description of the project, its main features, and its u
     make docker_stop
     ```
 
+## Running in Codespaces
+
+If you are using GitHub Codespaces, you launch Jupyter or run the dash application from Codespaces. 
+Just run the make commands from the terminal in Codespaces.
+
+
+
 ## Development Commands
 
 Here are some of the main `Makefile` commands you might use during development:
@@ -100,9 +109,13 @@ proj/
 │   ├── exploratory/       # Notebooks for initial data exploration and experimentation
 │   └── report/            # Final notebooks used for reporting and presentation
 │
+├── venv/                  # Python virtual environment (not committed to version control)
+|
 ├── src/                   # Source code directory
 │
 ├── tests/                 # Tests directory for unit tests, integration tests, etc.
+│
+├── requirements.txt       # Python dependencies
 │
 ├── .github/workflows/     # GitHub Actions workflows
 │
@@ -140,7 +153,7 @@ If you'd like to contribute to this project, please follow the usual fork-and-pu
 
 ## License
 
-Please see the `LICENSE` file in the root directory of the repository for more details.
+This code serves as a template and is licensed under the [MIT License](https://opensource.org/license/mit/)
 
 ---
 
