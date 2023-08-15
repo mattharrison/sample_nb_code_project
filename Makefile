@@ -35,8 +35,9 @@ test: ## Run tests
 docker_build: ## Build the Docker image
 	docker build -t $(DOCKER_IMG_NAME) .
 
-docker_run_shell: ## Start a new Docker container and enter into a shell
-	docker run -it --name $(DOCKER_CONTAINER_NAME) $(DOCKER_IMG_NAME) /bin/sh
+docker_run_shell: ## Start a new Docker container, mount the data volume, and enter into a shell
+	docker run -it --name $(DOCKER_CONTAINER_NAME) -v $(PWD)/data:/app/data $(DOCKER_IMG_NAME) /bin/sh
+
 
 docker_deploy: ## Deploy the Docker container
 	docker run -d --name $(DOCKER_CONTAINER_NAME) -p 8050:8050 -v $(PWD)/data:/app/data $(DOCKER_IMG_NAME)
