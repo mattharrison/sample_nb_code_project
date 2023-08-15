@@ -85,6 +85,11 @@ Here are some of the main `Makefile` commands you might use during development:
 - `make docker_stop`: Stop and remove the Docker container.
 - `make clean`: Clean up the development environment (remove virtual environment and Docker image).
 
+## Alternative Layouts
+
+- [Eric Ma's Layout](https://gist.github.com/ericmjl/27e50331f24db3e8f957d1fe7bbbe510)
+- [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
+
 ## Contributing
 
 If you'd like to contribute to this project, please follow the usual fork-and-pull request workflow. Ensure you run tests and all checks pass before making a pull request.
