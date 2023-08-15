@@ -2,7 +2,6 @@
 VENV_NAME=venv
 DOCKER_IMG_NAME=dash_demo
 DOCKER_CONTAINER_NAME=dash_container
-JUPYTER_NOTEBOOK=dash_v3-xyz.py
 PYTHON=python3
 PIP=$(VENV_NAME)/bin/pip
 APP=$(VENV_NAME)/bin/python
@@ -36,10 +35,11 @@ test: ## Run tests
 docker_build: ## Build the Docker image
 	docker build -t $(DOCKER_IMG_NAME) .
 
+docker_run_shell: ## Start a new Docker container and enter into a shell
+	docker run -it --name $(DOCKER_CONTAINER_NAME) $(DOCKER_IMG_NAME) /bin/sh
 
 docker_deploy: ## Deploy the Docker container
-	docker run -d --name $(DOCKER_CONTAINER_NAME) -p 8050:8050 $(DOCKER_IMG_NAME)
-
+	docker run -d --name $(DOCKER_CONTAINER_NAME) -p 8050:8050 -v $(PWD)/data:/app/data $(DOCKER_IMG_NAME)
 
 ci: test docker_build docker_deploy ## Run CI/CD
 	@echo "Continuous Integration and Deployment completed."
