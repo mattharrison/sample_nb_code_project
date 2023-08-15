@@ -36,7 +36,7 @@ docker_build: ## Build the Docker image
 	docker build -t $(DOCKER_IMG_NAME) .
 
 docker_run_shell: ## Start a new Docker container, mount the data volume, and enter into a shell
-	docker run -it --name $(DOCKER_CONTAINER_NAME) -v $(PWD)/data:/app/data $(DOCKER_IMG_NAME) /bin/sh
+	docker run -it --name $(DOCKER_CONTAINER_NAME) -v $(PWD)/tests:/app/tests -v $(PWD)/data:/app/data $(DOCKER_IMG_NAME) /bin/sh
 
 
 docker_deploy: ## Deploy the Docker container
