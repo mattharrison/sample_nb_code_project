@@ -30,7 +30,7 @@ setup_venv: ## Set up the virtual environment
 
 test: ## Run tests
 	@echo "Running tests with pytest..."
-	@PYTHONPATH=./src pytest -v tests/
+	@PYTHONPATH=./src $(PYTEST) -v tests/
 
 
 docker_build: ## Build the Docker image
