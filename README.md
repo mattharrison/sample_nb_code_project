@@ -85,6 +85,50 @@ Here are some of the main `Makefile` commands you might use during development:
 - `make docker_stop`: Stop and remove the Docker container.
 - `make clean`: Clean up the development environment (remove virtual environment and Docker image).
 
+
+## Directory Structure
+
+```
+proj/
+│
+├── data/                  # Data directory for storing all project data
+│   ├── raw/               # Raw data, unmodified from its original state
+│   ├── processed/         # Data that has been processed and ready for analysis
+│   └── external/          # External data, like third-party datasets or exports
+│
+├── notebooks/             # Jupyter notebooks directory
+│   ├── exploratory/       # Notebooks for initial data exploration and experimentation
+│   └── report/            # Final notebooks used for reporting and presentation
+│
+├── src/                   # Source code directory
+│
+├── tests/                 # Tests directory for unit tests, integration tests, etc.
+│
+├── .github/workflows/     # GitHub Actions workflows
+│
+├── .gitignore             # Specifies intentionally untracked files to ignore by Git
+│
+├── README.md              # Project description, usage, and other details
+│
+└── Makefile               # Contains automation commands for the project setup and management
+```
+
+ Directory Descriptions:
+
+- **data/**: This is the primary directory where all the data related to the project resides. Data is further categorized into raw, processed, and external to maintain clarity and separation of concerns.
+  
+- **notebooks/**: Contains Jupyter notebooks used throughout the project. `exploratory/` contains initial data exploration and experimentation notebooks, while `report/` has the finalized notebooks for presentation and reporting purposes.
+  
+- **src/**: The source code of the project resides here. This might include modules, scripts, and other necessary code files.
+
+- **tests/**: This directory is dedicated to testing. It contains test scripts, fixtures, and other testing-related files to ensure the codebase's functionality and robustness.
+
+- **Makefile**: This is a simple way to manage project tasks. It provides a set of commands for setting up the environment, running tests, building Docker images, and more. It also serves as a form of documentation for the project. If you are running on Windows, you can refer to the `Makefile` commands and run the equivalent commands in the command prompt.
+
+---
+
+You can add this section to your `README.md` to give readers a clear overview of your project's structure and organization.
+
 ## Alternative Layouts
 
 - [Eric Ma's Layout](https://gist.github.com/ericmjl/27e50331f24db3e8f957d1fe7bbbe510)
