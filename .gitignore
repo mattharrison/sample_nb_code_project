@@ -72,3 +72,8 @@ cython_debug/
 
 # Virtual Environment
 venv/
+
+# Emacs artifacts
+\#*\#
+.*.swp
+*~
